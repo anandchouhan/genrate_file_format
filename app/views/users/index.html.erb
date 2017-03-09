@@ -1,0 +1,46 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Mob No</th>
+      <th>Actions <%= link_to "New User", new_user_path %></th>
+    </tr>
+  </thead>
+    <% @users.each do |user| %>
+      <tbody>
+        <tr>
+        	<td><%= user.name %></td>  
+        	<td><%= user.address %></td>
+        	<td><%= user.mob_no %></td>
+				  <td><%= link_to "show", user_path(user) %>
+					<%= link_to "delete", user_path(user), method: :delete %>
+					<%= link_to "update", edit_user_path(user) %></td>
+        </tr>     
+      </tbody>
+    <% end %>  
+</table><br>
+ <%= link_to "PDF format", pdf_file_users_path(:pdf) %>  
+ <%= link_to "CSV format", csv_file_users_path(:csv) %>
+ <%#= link_to "EXCEL format", excel_file_users_path(:xlsx) %>
+
+<style type="text/css">
+	table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+	}
+
+	td, th {
+	    border: 1px solid #dddddd;
+	    text-align: left;
+	    padding: 6px;
+	}
+
+	tr:nth-child(even) {
+	    background-color: #dddddd;
+	}
+</style>
+
+
+

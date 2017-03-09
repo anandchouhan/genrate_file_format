@@ -1,0 +1,4 @@
+class Account < ActiveRecord::Base
+	belongs_to :user
+  has_one :account_history
+end

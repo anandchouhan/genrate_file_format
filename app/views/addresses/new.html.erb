@@ -1,0 +1,12 @@
+<%= form_for @address do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %><br><br>
+	<%= f.label :address %>
+	<%= f.text_field :address %><br><br>
+  <%= f.label :latitude %>
+  <%= f.text_field :lat %><br><br>
+  <%= f.label :langitude %>
+  <%= f.text_field :lng %><br><br>
+	<%= f.submit %>
+<% end %>

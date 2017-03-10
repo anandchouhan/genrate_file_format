@@ -19,10 +19,12 @@
   <%= f.label :mob_no %>
   <%= f.text_field :mob_no %><br><br>
   <%= f.label :Education %>
+
   <%= f.fields_for :course do |education| %>
     <%= education.check_box :course1 %>BE
     <%= education.check_box :course2 %>MCA
     <%= education.check_box :course3 %>MBA <br><br>
     <%= f.submit %>
   <% end %>
+  
 <% end %>

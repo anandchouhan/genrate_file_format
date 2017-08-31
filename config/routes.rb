@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         collection do
           get 'pdf_file'
           get 'csv_file'
+          get 'excel_file'
         end
       end
       resources :addresses

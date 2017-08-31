@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
-  require "prawn"
-  require 'prawn/table'
-  require 'csv'
-
 
 	def index
 		@users = User.all
-		#@users = User.active
 	end
 
 	def new
@@ -49,9 +44,17 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { render text: @users.to_csv }
-      #format.xls { render text: @users.to_csv(col_sep: "\t") }
     end
 	end
+
+	def excel_file
+    @users = User.all
+    respond_to do |format|
+      format.html
+      format.xls { render text: @users.to_excel }
+    end
+	end
+
 
 	def destroy
 		@user = User.find(params[:id])
@@ -71,7 +74,6 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		#@user.update(user_params)
 		@user.update_attributes(user_params)
 		redirect_to users_path
 	end
@@ -80,7 +82,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:name, :address, :mob_no, course_attributes: [:course1, :course2 , :course3])
+		params.require(:user).permit(:name, :address, :mob_no,  course_attributes: [:course1, :course2 , :course3])
 	end
 
 end

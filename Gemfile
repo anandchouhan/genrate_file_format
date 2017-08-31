@@ -30,7 +30,9 @@ gem 'twilio-ruby'
 gem 'wicked'
 gem 'underscore-rails'
 gem 'prawn-table'
-gem 'axlsx_rails'
+gem 'axlsx', '~> 2.0'
+gem "axlsx_rails"
+gem 'spreadsheet'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
